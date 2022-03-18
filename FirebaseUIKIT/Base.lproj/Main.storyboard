@@ -137,6 +137,9 @@
                     <navigationItem key="navigationItem" title="My Games" id="DlM-jc-qqG">
                         <barButtonItem key="leftBarButtonItem" title="Salir" id="WWJ-pw-H8a">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="salir:" destination="yr1-Po-s6Z" id="wkz-UQ-BSE"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eA7-Fj-Ady">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
