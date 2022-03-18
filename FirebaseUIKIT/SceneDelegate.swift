@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  FirebaseUIKIT
 //
-//  Created by Colimasoft on 18/03/22.
+//  Created by Zelxius on 18/03/22.
 //
 
 import UIKit

@@ -36,13 +36,16 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1P-0I-xfY">
-                                <rect key="frame" x="123" y="447" width="184" height="31"/>
+                                <rect key="frame" x="123" y="451" width="184" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Entrar">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="entrar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jOH-uK-tjk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qm-ix-xFS">
                                 <rect key="frame" x="123" y="516" width="184" height="44"/>
@@ -52,13 +55,18 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="registrar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3iR-EM-Eqv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                     </view>
                     <connections>
-                        <segue destination="CjW-Pc-Luu" kind="presentation" modalPresentationStyle="fullScreen" id="7KS-A9-eX4"/>
+                        <outlet property="email" destination="Rq3-ol-Upu" id="885-kz-O2F"/>
+                        <outlet property="pass" destination="0qG-3b-uKz" id="iKo-4D-OTp"/>
+                        <segue destination="CjW-Pc-Luu" kind="presentation" identifier="entrar" modalPresentationStyle="fullScreen" id="7KS-A9-eX4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -68,7 +76,7 @@
         <!--My Games-->
         <scene sceneID="E7D-c6-WyL">
             <objects>
-                <viewController id="yr1-Po-s6Z" sceneMemberID="viewController">
+                <viewController id="yr1-Po-s6Z" customClass="HomeViewController" customModule="FirebaseUIKIT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y3m-bp-BZv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="f4g-WN-zN9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="f4g-WN-zN9">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f4g-WN-zN9" id="brb-YI-vlC">
@@ -209,8 +217,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XUN-3u-tqI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" systemColor="systemPurpleColor"/>
                         <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
