@@ -18,14 +18,26 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     var image = UIImage()
     
+    var datos : FirebaseModel?
+    
     let plat = ["playstation", "xbox", "nintendo"]
     var consola = "playstation"
     
     override func viewDidLoad() {
-        progress.isHidden = true
         super.viewDidLoad()
+        progress.isHidden = true
         plataformas.delegate = self
         plataformas.dataSource = self
+        
+        if datos == nil {
+            self.title = "Agregar juego"
+        }else{
+            self.title = "Editar juego"
+        }
+        
+        titulo.text = datos?.titulo
+        desc.text = datos?.desc
+        consola = datos?.plataforma ?? "playstation"
 
     }
 
@@ -70,13 +82,30 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         progress.startAnimating()
         guard let title = titulo.text else { return }
         guard let descri = desc.text else { return }
-        FirebaseViewModel.shared.save(titulo: title, desc: descri, plataforma: consola, portada: image) { done in
-            if done {
-                self.titulo.text = ""
-                self.desc.text = ""
-                self.portada.image = UIImage(systemName: "photo")
-                self.progress.stopAnimating()
-                self.progress.isHidden = true
+        
+        if datos == nil {
+            FirebaseViewModel.shared.save(titulo: title, desc: descri, plataforma: consola, portada: image) { done in
+                if done {
+                    self.titulo.text = ""
+                    self.desc.text = ""
+                    self.portada.image = UIImage(systemName: "photo")
+                    self.progress.stopAnimating()
+                    self.progress.isHidden = true
+                }
+            }
+        }else{
+            if portada.image == UIImage(systemName: "photo"){
+                FirebaseViewModel.shared.edit(titulo: title, desc: descri, plataforma: consola, id: datos!.id) { done in
+                    if done {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }else{
+                FirebaseViewModel.shared.editWithImage(titulo: title, desc: descri, plataforma: consola, id: datos!.id, index: datos!, portada: image) { done in
+                    if done{
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
             }
         }
     }

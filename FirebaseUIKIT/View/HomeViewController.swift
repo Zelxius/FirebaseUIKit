@@ -51,10 +51,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }
-        
         return cell
     }
     
+    // editar
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "enviar", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "enviar"{
+            if let id = tabla.indexPathForSelectedRow{
+                let fila = FirebaseViewModel.shared.datos[id.row]
+                let destino = segue.destination as! AddViewController
+                destino.datos = fila
+            }
+        }
+    }
+    
+    // eliminar
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "borrar") { (_, _, _) in
+            let juego = FirebaseViewModel.shared.datos[indexPath.row]
+            FirebaseViewModel.shared.delete(index: juego)
+        }
+        delete.image = UIImage(systemName: "trash")
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
     
 
     @IBAction func salir(_ sender: UIBarButtonItem) {

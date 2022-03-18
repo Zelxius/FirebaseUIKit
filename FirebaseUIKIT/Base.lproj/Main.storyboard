@@ -156,6 +156,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tabla" destination="lVU-y2-uw1" id="btX-TP-ea8"/>
+                        <segue destination="cqI-6Y-18V" kind="show" identifier="enviar" id="y8O-ss-fJx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yk3-NJ-fud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -275,6 +276,9 @@
             <point key="canvasLocation" x="756.52173913043487" y="66.964285714285708"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="y8O-ss-fJx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
