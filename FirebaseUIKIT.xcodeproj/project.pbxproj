@@ -20,6 +20,8 @@
 		5DF920B527E4E4BB00015581 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5DF920B427E4E4BA00015581 /* .gitignore */; };
 		5DF920B927E4EEA900015581 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF920B827E4EEA900015581 /* HomeViewController.swift */; };
 		5DF920BB27E4F0CE00015581 /* FirebaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF920BA27E4F0CE00015581 /* FirebaseViewModel.swift */; };
+		5DF920BD27E5119200015581 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF920BC27E5118E00015581 /* AddViewController.swift */; };
+		5DF920C027E53A5100015581 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF920BF27E53A5100015581 /* FirebaseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		5DF920B427E4E4BA00015581 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5DF920B827E4EEA900015581 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5DF920BA27E4F0CE00015581 /* FirebaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewModel.swift; sourceTree = "<group>"; };
+		5DF920BC27E5118E00015581 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		5DF920BF27E53A5100015581 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		5DF9209627E4DD2F00015581 /* FirebaseUIKIT */ = {
 			isa = PBXGroup;
 			children = (
+				5DF920BE27E539D600015581 /* Model */,
 				5DF920B727E4EE5200015581 /* View */,
 				5DF920B627E4EE3700015581 /* ViewModel */,
 				5DF9209727E4DD2F00015581 /* AppDelegate.swift */,
@@ -97,8 +102,17 @@
 			isa = PBXGroup;
 			children = (
 				5DF920B827E4EEA900015581 /* HomeViewController.swift */,
+				5DF920BC27E5118E00015581 /* AddViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5DF920BE27E539D600015581 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5DF920BF27E53A5100015581 /* FirebaseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,9 +198,11 @@
 			files = (
 				5DF9209C27E4DD2F00015581 /* ViewController.swift in Sources */,
 				5DF9209827E4DD2F00015581 /* AppDelegate.swift in Sources */,
+				5DF920BD27E5119200015581 /* AddViewController.swift in Sources */,
 				5DF9209A27E4DD2F00015581 /* SceneDelegate.swift in Sources */,
 				5DF920B927E4EEA900015581 /* HomeViewController.swift in Sources */,
 				5DF920BB27E4F0CE00015581 /* FirebaseViewModel.swift in Sources */,
+				5DF920C027E53A5100015581 /* FirebaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +354,8 @@
 				DEVELOPMENT_TEAM = 5VJM82DDZ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FirebaseUIKIT/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Usar libreria";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -366,6 +384,8 @@
 				DEVELOPMENT_TEAM = 5VJM82DDZ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FirebaseUIKIT/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Usar libreria";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

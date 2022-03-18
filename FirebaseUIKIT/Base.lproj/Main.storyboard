@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="f4g-WN-zN9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="f4g-WN-zN9" customClass="Celda" customModule="FirebaseUIKIT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f4g-WN-zN9" id="brb-YI-vlC">
@@ -121,6 +121,12 @@
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="desc" destination="jC6-8t-QME" id="oow-dZ-ty9"/>
+                                            <outlet property="plataforma" destination="uci-iQ-V9V" id="BOg-CO-QSS"/>
+                                            <outlet property="portada" destination="slg-4H-qNY" id="g00-Qd-lbW"/>
+                                            <outlet property="titulo" destination="oa3-Dm-fVs" id="UlD-aZ-bwT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -148,6 +154,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tabla" destination="lVU-y2-uw1" id="btX-TP-ea8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yk3-NJ-fud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,7 +165,7 @@
         <!--Agregar juego-->
         <scene sceneID="7Cs-m7-rZm">
             <objects>
-                <viewController id="cqI-6Y-18V" sceneMemberID="viewController">
+                <viewController id="cqI-6Y-18V" customClass="AddViewController" customModule="FirebaseUIKIT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pR0-kK-bnu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,7 +186,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6T1-pl-UCn">
-                                <rect key="frame" x="11" y="269" width="383" height="121"/>
+                                <rect key="frame" x="12" y="269" width="383" height="121"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dG7-Fb-Xg2">
@@ -192,6 +201,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cargarimagen:" destination="cqI-6Y-18V" eventType="touchUpInside" id="Skc-6J-hPK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aal-0v-ssG">
                                 <rect key="frame" x="134" y="559" width="136" height="32"/>
@@ -201,12 +213,27 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="guardar:" destination="cqI-6Y-18V" eventType="touchUpInside" id="fNL-E5-vTO"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Tf8-rf-GfR">
+                                <rect key="frame" x="197" y="599" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemPurpleColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9eB-4o-Eo5"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
                     <navigationItem key="navigationItem" title="Agregar juego" id="nhg-Xc-n0P"/>
+                    <connections>
+                        <outlet property="desc" destination="54y-lP-7Nn" id="U4w-5s-uq2"/>
+                        <outlet property="plataformas" destination="6T1-pl-UCn" id="Nab-Qq-Wja"/>
+                        <outlet property="portada" destination="dG7-Fb-Xg2" id="aFe-Al-EZw"/>
+                        <outlet property="progress" destination="Tf8-rf-GfR" id="XBw-mp-b2y"/>
+                        <outlet property="titulo" destination="AfF-33-pPS" id="w66-E5-9at"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0O-Of-nUK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
